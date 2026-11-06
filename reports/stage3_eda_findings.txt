@@ -1,0 +1,336 @@
+Orders analysed: 96,470 | overall late rate: 6.77%
+
+======================================================================
+1. UNIVARIATE ANALYSIS
+======================================================================
+Target: on-time 89,936 (93.23%), late 6,534 (6.77%)
+  [figure] 01_target_distribution.png
+
+Numeric features (summary):
+                           count      mean       std     min      1%      25%      50%       75%       95%        99%         max
+estimated_delivery_days  96470.0     24.37      8.76    3.00    7.00    19.00    24.00     29.00     39.00      51.00      156.00
+distance_km              95992.0    600.68    594.16    0.00    5.74   184.97   433.81    798.22   2095.70    2483.25     8677.86
+total_price              96470.0    137.04    209.05    0.85   11.99    45.90    86.50    149.90    399.00     990.00    13440.00
+total_freight            96470.0     22.79     21.56    0.00    7.39    13.85    17.17     24.02     54.78     104.25     1794.96
+freight_ratio            96470.0      0.31      0.31    0.00    0.03     0.13     0.22      0.38      0.84       1.46       21.45
+total_weight_g           96454.0   2386.87   4770.11    0.00  100.00   300.00   750.00   2050.00  10500.00   22350.00   184400.00
+total_volume_cm3         96454.0  17331.94  30143.87  168.00  352.00  2964.00  7254.00  19866.00  64000.00  135690.82  1476000.00
+shipping_limit_days      96470.0      6.66      4.69    2.00    2.00     5.00     6.00      7.00     12.00      19.00     1052.00
+  [figure] 02_numeric_distributions.png
+  [figure] 03_days_vs_estimate.png
+  [figure] 04_categorical_counts.png
+
+======================================================================
+2. BIVARIATE ANALYSIS: late rate by factor
+======================================================================
+
+Late rate by customer_state (groups with >= 200 orders), top 10:
+                orders  late_rate_pct
+customer_state                       
+AL                 397          21.41
+MA                 717          17.43
+SE                 335          15.22
+PI                 476          13.87
+CE                1279          13.76
+BA                3256          12.16
+RJ               12350          12.11
+PA                 946          11.21
+ES                1995          10.73
+PB                 517          10.44
+  [figure] 05_late_by_customer_state.png
+
+Late rate by seller_state (groups with >= 100 orders), top 10:
+              orders  late_rate_pct
+seller_state                       
+MA               388          19.07
+SP             68415           7.33
+RJ              4185           7.19
+ES               308           6.17
+PR              7429           5.41
+DF               803           5.23
+SC              3551           4.93
+BA               549           4.92
+MG              7647           4.84
+MT               134           3.73
+  [figure] 06_late_by_seller_state.png
+
+Late rate by product_category (groups with >= 300 orders), top 10:
+                       orders  late_rate_pct
+product_category                            
+audio                     344          11.92
+home_confort              370           9.46
+baby                     2763           8.18
+office_furniture         1246           8.11
+electronics              2507           7.66
+musical_instruments       607           7.58
+furniture_living_room     409           7.58
+health_beauty            8608           7.54
+bed_bath_table           9167           7.52
+watches_gifts            5470           7.42
+  [figure] 07_late_by_category.png
+
+Late rate by purchase month (months with >= 200 orders):
+                     orders  late_rate_pct
+purchase_year_month                       
+2016-10                 265           0.75
+2017-01                 750           2.93
+2017-02                1653           2.96
+2017-03                2546           4.56
+2017-04                2303           6.56
+2017-05                3545           2.99
+2017-06                3135           3.03
+2017-07                3872           2.79
+2017-08                4193           2.91
+2017-09                4150           4.39
+2017-10                4478           4.18
+2017-11                7288          12.40
+2017-12                5513           7.46
+2018-01                7069           5.70
+2018-02                6555          14.13
+2018-03                7003          18.96
+2018-04                6798           4.50
+2018-05                6749           6.56
+2018-06                6096           1.16
+2018-07                6156           3.38
+2018-08                6351           6.19
+  [figure] 08_late_by_year_month.png
+
+Late rate by purchase_month:
+                orders  late_rate_pct
+purchase_month                       
+1                 7819           5.44
+2                 8208          11.88
+3                 9549          15.12
+4                 9101           5.02
+5                10294           5.33
+6                 9231           1.80
+7                10028           3.15
+8                10544           4.88
+9                 4151           4.41
+10                4743           3.98
+11                7288          12.40
+12                5514           7.45
+  [figure] 09_late_by_month.png
+
+Late rate by purchase_dayofweek:
+                    orders  late_rate_pct
+purchase_dayofweek                       
+0                    15701           7.44
+1                    15502           7.05
+2                    15074           6.57
+3                    14322           6.30
+4                    13684           7.02
+5                    10555           6.59
+6                    11632           6.22
+  [figure] 10_late_by_weekday.png
+
+Late rate by purchase_hour:
+               orders  late_rate_pct
+purchase_hour                       
+0                2321           7.50
+1                1133           7.50
+2                 496           6.45
+3                 259           5.41
+4                 203           3.94
+5                 182           4.40
+6                 477           5.66
+7                1199           6.59
+8                2907           6.05
+9                4647           6.13
+10               5978           6.31
+11               6385           6.58
+12               5802           7.12
+13               6309           6.67
+14               6383           6.86
+15               6249           6.67
+16               6475           6.59
+17               5961           6.43
+18               5585           6.73
+19               5801           7.19
+20               6007           7.06
+21               6039           7.25
+22               5658           7.07
+23               4014           7.35
+  [figure] 11_late_by_hour.png
+
+Late rate by distance_km decile (1 = lowest). Bin edges: [0.0, 34.4, 116.0, 276.5, 347.9, 433.8, 529.7, 694.7, 876.4, 1456.7, 8677.9]
+      orders  late_rate_pct
+_bin                       
+1       9600           4.23
+2       9599           4.83
+3       9600           4.95
+4       9598           6.63
+5       9599           6.64
+6       9599           6.58
+7       9599           7.67
+8       9599           6.73
+9       9599           7.67
+10      9600          11.69
+  [figure] 12_late_by_distance.png
+
+Late rate by estimated_delivery_days decile (1 = lowest). Bin edges: [3.0, 14.0, 17.0, 20.0, 22.0, 24.0, 26.0, 28.0, 31.0, 35.0, 156.0]
+      orders  late_rate_pct
+_bin                       
+1      12002           6.21
+2       7390           5.72
+3      11272           7.49
+4      10467           8.92
+5      10802           7.79
+6       9810           7.21
+7       8410           7.48
+8       9264           6.65
+9       8475           5.81
+10      8578           3.52
+  [figure] 13_late_by_estimated_days.png
+
+Late rate by total_freight decile (1 = lowest). Bin edges: [0.0, 9.3, 12.8, 14.5, 15.6, 17.2, 18.6, 22.0, 27.4, 39.4, 1795.0]
+      orders  late_rate_pct
+_bin                       
+1       9853           4.24
+2       9544           4.60
+3       9572           5.25
+4       9620           6.83
+5       9655           7.58
+6       9725           7.63
+7       9564           7.85
+8       9661           7.51
+9       9629           7.76
+10      9647           8.49
+  [figure] 14_late_by_freight.png
+
+Late rate by total_weight_g decile (1 = lowest). Bin edges: [0.0, 175.0, 250.0, 350.0, 500.0, 750.0, 1100.0, 1650.0, 2800.0, 6550.0, 184400.0]
+      orders  late_rate_pct
+_bin                       
+1      10017           6.36
+2      10481           5.82
+3       8601           7.59
+4       9730           6.52
+5       9953           6.20
+6       9102           6.30
+7      10068           7.21
+8       9351           6.83
+9       9524           7.13
+10      9627           7.96
+  [figure] 15_late_by_weight.png
+
+Late rate by shipping_limit_days decile (1 = lowest). Bin edges: [2.0, 4.0, 5.0, 6.0, 7.0, 8.0, 10.0, 1052.0]
+      orders  late_rate_pct
+_bin                       
+1      21350           6.36
+2       8929           6.78
+3      28080           7.36
+4      14204           6.89
+5       8648           7.17
+6       7560           6.10
+7       7699           5.79
+  [figure] 16_late_by_shipping_limit.png
+
+Late rate by payment_type:
+              orders  late_rate_pct
+payment_type                       
+boleto         19191           7.32
+credit_card    74296           6.68
+debit_card      1484           5.32
+voucher         1498           5.81
+  [figure] 17_late_by_payment.png
+
+Late rate by same_state:
+            orders  late_rate_pct
+same_state                       
+0            61769           8.05
+1            34701           4.50
+  [figure] 18_late_by_same_state.png
+
+Late rate by n_sellers_capped:
+                  orders  late_rate_pct
+n_sellers_capped                       
+1                  95195           6.85
+2                   1216           1.07
+3                     59           0.00
+  [figure] 19_late_by_n_sellers.png
+
+Late rate by n_items_capped:
+                orders  late_rate_pct
+n_items_capped                       
+1                86835           6.94
+2                 7392           5.37
+3                 1306           4.90
+4                  495           4.65
+5                  442           5.88
+  [figure] 20_late_by_n_items.png
+  [figure] 21_boxplots_by_target.png
+
+Customer impact: review score by delivery outcome (analysis only):
+         orders  mean_score
+is_late                    
+0         89443        4.29
+1          6381        2.27
+Share of reviews with 1-2 stars (%):
+is_late
+0     9.23
+1    62.36
+
+======================================================================
+3. MULTIVARIATE ANALYSIS
+======================================================================
+Correlation of each numeric feature with is_late:
+distance_km                0.076
+same_state                -0.068
+estimated_delivery_days   -0.033
+total_freight              0.031
+purchase_month            -0.030
+n_sellers                 -0.026
+n_products                -0.022
+total_weight_g             0.020
+total_price                0.018
+n_items                   -0.015
+total_volume_cm3           0.015
+max_installments           0.013
+purchase_dayofweek        -0.012
+freight_ratio              0.009
+purchase_hour              0.007
+n_payments                -0.004
+shipping_limit_days       -0.003
+  [figure] 22_correlation_heatmap.png
+
+Distance quintile edges (km): [0.0, 116.0, 348.0, 530.0, 876.0, 8678.0]
+Estimated-days quintile edges: [3.0, 17.0, 22.0, 26.0, 31.0, 156.0]
+
+Late rate (%) by distance quintile (rows) x promised-days quintile (columns):
+est_q      1      2      3      4     5
+dist_q                                 
+1       5.42   3.08   2.69   3.07  1.14
+2       6.86   7.39   4.17   4.31  3.62
+3       7.03   8.80   6.49   5.74  2.94
+4       7.59  11.27   8.49   5.38  3.60
+5       9.46  14.86  14.35  10.96  6.05
+  [figure] 23_distance_x_promised_days.png
+  [figure] 24_route_heatmap.png
+
+Sellers in total: 2,960; with >= 30 orders: 621
+Seller late rate (%), sellers with >= 30 orders:
+count    621.00
+mean       6.60
+std        4.99
+min        0.00
+25%        3.17
+50%        5.56
+75%        9.09
+max       34.29
+
+Ten highest late rates among sellers with >= 30 orders:
+             orders  late_orders  late_rate_pct
+seller_id                                      
+ad781527...      35           12          34.29
+ede0c036...      43           14          32.56
+54965bbe...      72           22          30.56
+2a1348e9...      48           13          27.08
+835f0f78...      41           11          26.83
+beadbee3...      63           15          23.81
+a49928bc...      94           21          22.34
+ef990a83...      42            9          21.43
+712e6ed8...      77           16          20.78
+3fd1e727...      34            7          20.59
+
+Sellers with >= 30 orders account for 83.6% of all late orders
+  [figure] 25_seller_late_rate_distribution.png

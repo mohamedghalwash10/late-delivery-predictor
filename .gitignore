@@ -15,3 +15,6 @@ data/raw/*
 # OS / editor
 .DS_Store
 Thumbs.db
+# Regenerable processed data
+data/processed/*
+!data/processed/.gitkeep
