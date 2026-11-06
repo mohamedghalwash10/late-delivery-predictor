@@ -1,0 +1,92 @@
+
+======================================================================
+1. DUPLICATES
+======================================================================
+Duplicated order_id: 0
+Fully duplicated rows: 0
+
+======================================================================
+2. TIME-BASED SPLIT
+======================================================================
+Test period starts: 2018-06-01
+Purged from training (bought before, delivered after the cut-off): 2,438
+  set  orders  late  late_rate_pct first_purchase last_purchase
+train   75429  5368           7.12     2016-09-15    2018-05-29
+ test   18603   672           3.61     2018-06-01    2018-08-29
+
+======================================================================
+3. LEAKAGE CHECKS
+======================================================================
+[OK] no analysis-only column is a model feature
+[OK] no id column is a model feature
+[OK] target is not a model feature
+[OK] every training purchase is before the test period
+[OK] every training delivery happened before the test period
+[OK] no order appears in both sets
+
+Model features (20): ['estimated_delivery_days', 'distance_km', 'n_items', 'n_products', 'n_sellers', 'total_price', 'total_freight', 'freight_ratio', 'total_weight_g', 'total_volume_cm3', 'max_installments', 'n_payments', 'shipping_limit_days', 'purchase_dayofweek', 'purchase_hour', 'same_state', 'customer_state', 'seller_state', 'product_category', 'payment_type']
+
+======================================================================
+4. MISSING VALUES IN TRAINING FEATURES (imputed inside the pipeline)
+======================================================================
+distance_km         391
+total_weight_g       16
+total_volume_cm3     16
+max_installments      1
+n_payments            1
+payment_type          1
+
+======================================================================
+5. PREPROCESSOR FITTED ON TRAINING DATA ONLY
+======================================================================
+Outlier clipping bounds learned from training data (1st / 99th percentile):
+                feature  lower_p1  upper_p99  train_max
+            total_price     11.99     989.00   13440.00
+          total_freight      7.39      99.77    1002.29
+          freight_ratio      0.02       1.42      21.45
+         total_weight_g    100.00   22600.00  184400.00
+       total_volume_cm3    352.00  140000.00 1476000.00
+estimated_delivery_days     10.00      51.00     156.00
+            distance_km      5.87    2482.83    8032.93
+                n_items      1.00       3.00      21.00
+             n_products      1.00       2.00       7.00
+              n_sellers      1.00       2.00       5.00
+       max_installments      1.00      10.00      24.00
+             n_payments      1.00       2.00      26.00
+    shipping_limit_days      4.00      19.00    1052.00
+     purchase_dayofweek      0.00       6.00       6.00
+          purchase_hour      0.00      23.00      23.00
+             same_state      0.00       1.00       1.00
+
+Categorical encoding:
+  customer_state      27 categories seen in training, 3 grouped as infrequent
+  seller_state        22 categories seen in training, 9 grouped as infrequent
+  product_category    74 categories seen in training, 27 grouped as infrequent
+  payment_type         5 categories seen in training, 1 grouped as infrequent
+
+======================================================================
+6. TRANSFORMED MATRICES
+======================================================================
+Input features: 20 (16 numeric, 4 categorical)
+Train: (75429, 108)   Test: (18603, 108)
+NaN left in train: 0   in test: 0
+
+Scaled numeric columns. Train should be about 0 / 1. Test is NOT exactly 0 / 1,
+because it is scaled with training statistics (that is correct, no leakage):
+                         train_mean  train_std  test_mean  test_std
+total_price                     0.0        1.0      0.002     0.998
+total_freight                  -0.0        1.0      0.135     1.136
+freight_ratio                   0.0        1.0      0.075     1.016
+total_weight_g                 -0.0        1.0     -0.110     0.970
+total_volume_cm3               -0.0        1.0     -0.118     0.960
+estimated_delivery_days        -0.0        1.0     -0.401     1.279
+distance_km                    -0.0        1.0     -0.059     1.004
+n_items                         0.0        1.0     -0.019     0.974
+n_products                      0.0        1.0     -0.000     1.000
+n_sellers                       0.0        1.0      0.043     1.176
+max_installments               -0.0        1.0     -0.054     0.953
+n_payments                     -0.0        1.0     -0.030     0.915
+shipping_limit_days            -0.0        1.0     -0.307     1.032
+purchase_dayofweek              0.0        1.0     -0.013     1.006
+purchase_hour                   0.0        1.0     -0.000     0.981
+same_state                     -0.0        1.0      0.110     1.028
