@@ -1,0 +1,17 @@
+# Environment
+.venv/
+.env
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Raw data (large, redistributed by Kaggle, not for GitHub)
+data/raw/*
+!data/raw/.gitkeep
+
+# OS / editor
+.DS_Store
+Thumbs.db
