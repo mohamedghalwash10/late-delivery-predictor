@@ -1,0 +1,60 @@
+{
+  "model_name": "Logistic Regression",
+  "best_params": {
+    "C": 0.03,
+    "class_weight": null
+  },
+  "selection_rule": "PR-AUC within 0.01 of best, then highest recall in the riskiest 10%",
+  "cv_metrics": {
+    "pr_auc_mean": 0.16654126798010355,
+    "pr_auc_std": 0.03840322289093096,
+    "roc_auc_mean": 0.665714532165132,
+    "recall_top10_mean": 0.24438536970407854
+  },
+  "risk_tiers": {
+    "medium_cutoff": 0.041896431841470266,
+    "high_cutoff": 0.06781358443105617,
+    "validation_late_rate_pct": {
+      "High": 19.75,
+      "Medium": 11.29,
+      "Low": 6.3
+    }
+  },
+  "train": {
+    "orders": 75429,
+    "late_rate_pct": 7.12,
+    "first_purchase": "2016-09-15",
+    "last_purchase": "2018-05-29"
+  },
+  "test_start": "2018-06-01",
+  "trained_on_test_set": false,
+  "model_features": [
+    "estimated_delivery_days",
+    "distance_km",
+    "n_items",
+    "n_products",
+    "n_sellers",
+    "total_price",
+    "total_freight",
+    "freight_ratio",
+    "total_weight_g",
+    "total_volume_cm3",
+    "max_installments",
+    "n_payments",
+    "shipping_limit_days",
+    "purchase_dayofweek",
+    "purchase_hour",
+    "same_state",
+    "customer_state",
+    "seller_state",
+    "product_category",
+    "payment_type"
+  ],
+  "versions": {
+    "python": "3.11.9",
+    "scikit-learn": "1.5.2",
+    "xgboost": "2.1.3",
+    "pandas": "2.2.3",
+    "numpy": "1.26.4"
+  }
+}
