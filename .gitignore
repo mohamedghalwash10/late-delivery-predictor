@@ -18,3 +18,5 @@ Thumbs.db
 # Regenerable processed data
 data/processed/*
 !data/processed/.gitkeep
+# Downloaded archives
+*.zip
