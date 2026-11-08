@@ -2,7 +2,7 @@
 
 A machine learning system that ranks e-commerce orders by their **risk of arriving after the promised delivery date**, using only information available at purchase time. Built on the public [Olist Brazilian E-Commerce dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce).
 
-> 🔗 **Live app:** https://YOUR-APP-NAME.streamlit.app
+> 🔗 **Live app:** https://late-delivery-predictor-334o5suya67wwfxjtkgrlu.streamlit.app/
 >
 > No installation needed: open the link in any browser.
 
@@ -233,6 +233,6 @@ Python 3.11 · pandas · NumPy · scikit-learn · XGBoost · Matplotlib · Seabo
 
 ## Author
 
-**<Your Name>** · <course name>, <university> · <link to your LinkedIn or portfolio>
+**<Mohamed Ghalwash>** · <NextGen>, <Galala university> · < (https://www.linkedin.com/in/mohamed-ghalwash-0b2101280/)>
 
 Dataset © Olist, published on Kaggle; see the dataset page for its licence.
