@@ -120,7 +120,7 @@ if submitted:
             plot["direction"] = np.where(plot["effect"] > 0, "raises risk", "lowers risk")
             fig = px.bar(plot.iloc[::-1], x="effect", y="factor", color="direction", orientation="h",
                          color_discrete_map={"raises risk": TIER_COLORS["High"], "lowers risk": TIER_COLORS["Low"]},
-                         labels={"effect": "Effect on the model's log-odds", "factor": ""})
+                         labels={"effect": "Effect on the risk score (right raises it, left lowers it)", "factor": ""})
             fig.update_layout(height=380, margin=dict(l=0, r=0, t=10, b=0), legend_title_text="")
             st.plotly_chart(fig, use_container_width=True)
             up = [FEATURE_LABELS.get(k, k) for k in top[top > 0].index[:3]]

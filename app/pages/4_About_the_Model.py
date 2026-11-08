@@ -19,7 +19,7 @@ st.header("Algorithms compared")
 st.markdown(
     "| Model | What it is |\n|---|---|\n"
     "| Dummy (prior) | Always outputs the training late rate. The floor every model must beat. |\n"
-    "| Logistic Regression | Linear model of the log-odds of being late. Simple and explainable. |\n"
+    "| Logistic Regression | Linear model: adds up a weighted effect for each factor. Simple and easy to explain. |\n"
     "| Random Forest | 300 averaged decision trees; finds non-linear effects and interactions. |\n"
     "| XGBoost | Small trees built one after another, each correcting the previous ones. |"
 )
