@@ -81,6 +81,84 @@
       "share_of_late_orders_pct": 4.0
     }
   ],
+  "operating_points_v2": [
+    {
+      "operating point": "High tier",
+      "cut-off": 0.1476,
+      "orders flagged %": 15.9,
+      "precision": 0.0574,
+      "recall": 0.253,
+      "F1": 0.0936
+    },
+    {
+      "operating point": "Medium and High tiers",
+      "cut-off": 0.0788,
+      "orders flagged %": 39.4,
+      "precision": 0.0456,
+      "recall": 0.497,
+      "F1": 0.0835
+    }
+  ],
+  "tiers_train_v2": [
+    {
+      "tier": "High",
+      "orders": 7543,
+      "share_of_orders_pct": 10.0,
+      "late_orders": 1609,
+      "late_rate_pct": 21.33,
+      "share_of_late_orders_pct": 30.0
+    },
+    {
+      "tier": "Medium",
+      "orders": 15086,
+      "share_of_orders_pct": 20.0,
+      "late_orders": 1610,
+      "late_rate_pct": 10.67,
+      "share_of_late_orders_pct": 30.0
+    },
+    {
+      "tier": "Low",
+      "orders": 52800,
+      "share_of_orders_pct": 70.0,
+      "late_orders": 2149,
+      "late_rate_pct": 4.07,
+      "share_of_late_orders_pct": 40.0
+    }
+  ],
+  "tiers_test_v2": [
+    {
+      "tier": "High",
+      "orders": 2960,
+      "share_of_orders_pct": 15.9,
+      "late_orders": 170,
+      "late_rate_pct": 5.74,
+      "share_of_late_orders_pct": 25.3
+    },
+    {
+      "tier": "Medium",
+      "orders": 4367,
+      "share_of_orders_pct": 23.5,
+      "late_orders": 164,
+      "late_rate_pct": 3.76,
+      "share_of_late_orders_pct": 24.4
+    },
+    {
+      "tier": "Low",
+      "orders": 11276,
+      "share_of_orders_pct": 60.6,
+      "late_orders": 338,
+      "late_rate_pct": 3.0,
+      "share_of_late_orders_pct": 50.3
+    }
+  ],
+  "probability_check": {
+    "mean_predicted_train_pct": 7.12,
+    "mean_predicted_test_pct": 8.87,
+    "actual_train_pct": 7.12,
+    "actual_test_pct": 3.61,
+    "brier_model": 0.0406,
+    "brier_constant": 0.036
+  },
   "cv_pr_auc_mean": 0.16654126798010355,
   "cv_pr_auc_std": 0.03840322289093096,
   "model_comparison_cv": [
@@ -110,7 +188,7 @@
     }
   ],
   "tier_cutoffs": {
-    "medium": 0.041896431841470266,
-    "high": 0.06781358443105617
+    "medium": 0.07884137771492881,
+    "high": 0.14761799578577434
   }
 }

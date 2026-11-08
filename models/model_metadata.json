@@ -12,12 +12,18 @@
     "recall_top10_mean": 0.24438536970407854
   },
   "risk_tiers": {
-    "medium_cutoff": 0.041896431841470266,
-    "high_cutoff": 0.06781358443105617,
-    "validation_late_rate_pct": {
-      "High": 19.75,
-      "Medium": 11.29,
-      "Low": 6.3
+    "medium_cutoff": 0.07884137771492881,
+    "high_cutoff": 0.14761799578577434,
+    "definition": "70th and 90th percentile of the deployed model's scores on the training set",
+    "train_late_rate_pct": {
+      "High": 21.33,
+      "Medium": 10.67,
+      "Low": 4.07
+    },
+    "test_late_rate_pct": {
+      "High": 5.74,
+      "Medium": 3.76,
+      "Low": 3.0
     }
   },
   "train": {
